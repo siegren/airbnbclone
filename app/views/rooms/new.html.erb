@@ -1,0 +1,10 @@
+<div class="container form-group">
+<h1>New Room</h1>
+<%= link_to 'Home', root_url %> /
+<%= link_to 'My Rooms', user_rooms_path %> /
+New Room
+<hr />
+
+<%= render 'form', room: @room %>
+
+</div>

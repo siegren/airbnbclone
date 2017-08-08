@@ -1,0 +1,13 @@
+
+<div class="form-group search-box <% if params[:controller] == "app_pages" && params[:action] == "search" %> ss <% end %>">
+	<%= form_tag search_path, method: :get do %>
+
+			<span>Where</span>
+			 	<%= text_field_tag 'txtsearch', nil, placeholder: 'Destination', class: 'form-control txt-search' %>
+			 	
+			 	<%= submit_tag 'Search', class: 'form-control btn-search btn-success' %>
+
+
+
+<% end %>
+</div>

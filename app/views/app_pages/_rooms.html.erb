@@ -1,0 +1,32 @@
+	<div class="row">
+	<% @markers ="" %>
+	<% @multiple = Array.new %>
+		<% @rooms.each do |room| %>
+			<div class="col-md-4 index-room-pic-box">
+				<div class="slider">
+					<% 
+						if room.picture.exists?
+							@pic = room.picture.url
+						else
+							@pic = room.picture.url(:thumb)
+						end
+					%>
+					<%= link_to image_tag(@pic, class: 'index-room-pic'), room_profile_path(room.id) %>
+				</div>
+				<%= link_to room.name, room_profile_path(room.id), class: 'title' %>
+				<div class="rating"> 
+					Ratings:
+					<div class="rate" ><%= rating_for room, "name"%></div>
+					<div class="reviews">
+						<% @review_count = Review.where("room_id = '#{room.id}'").count %>
+						<%= "#{@review_count} reviews" %>
+					</div>
+				</div>
+			</div>
+			<% @markers = "#{@markers}&markers=#{room.latitude}%2C#{room.longitude}" %>
+			<% @multiple << {:latitude => room.latitude, :longitude => room.longitude} %>
+
+		<% end %>
+
+		
+	</div>

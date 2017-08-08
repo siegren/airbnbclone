@@ -1,0 +1,234 @@
+// Place all the styles related to the app_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.index-room-pic-box{
+	margin-bottom: 25px ;	
+}
+
+.index-nav{
+	margin: 0px !important;
+}
+
+.index-room-pic{
+	width: 100%;
+	height: 250px;
+	margin: 0 auto;
+	display: block;
+}
+
+.slider{
+	/* border: 10px solid silver; */
+}
+
+.small{
+	width: 25px;
+	height: 25px;
+}
+
+.btn-fb{
+	width: 100%;
+}
+
+.modal-session{
+	width: 300px;
+	margin: 0 auto;
+}
+
+.modal-session .modal-content{
+	width: 300px;
+	max-width: 100%;
+}
+
+.index h1{
+	font-size: 4em;
+	font-weight: bolder;
+}
+
+.index p{
+	font-size: 4em;
+	line-height: 50px;
+}
+
+.txt-search{
+	padding-top: 30px !important;
+	padding-right: 0 !important;
+	max-width: 98.9%;
+	box-sizing: content-box;
+
+}
+
+.btn-search{
+	width: 80px !important;	
+	height: 44px !important;
+		box-sizing: content-box;
+		position: absolute;
+		right: 7px;
+		top: 7px;
+}
+
+.search-box{
+	position: relative;
+	margin-bottom: 0px !important;
+
+}
+
+.ss{
+	border-radius: 0 !important;
+	border: 1px solid #fff !important
+}
+
+.dt{
+	width: 107px !important;
+	height: 35px;
+	border-radius: 4px;
+	background-color: #fff;
+	box-sizing: border-box;
+	padding-left: 5px;
+}
+
+.search-box span{
+	position:absolute;
+	top: 5px;
+	left: 12px;
+	font-weight: bold;
+}
+
+.cover{
+	width: 100%;
+	height: 250px;
+	position: relative;
+}
+
+.cover img{
+	width:100%;
+	height: 100%;
+}
+
+.room-name{
+	font-size: 3.5em;
+	font-weight: bolder;
+}
+
+.location{
+	font-size: 1.2em;
+	color: silver;
+}
+
+h3{
+	font-weight: bolder;
+}
+
+
+
+.host-avatar{
+	width: 100%;
+	height: 100px;
+	border-radius: 100%;
+}
+
+.host-fullname{
+	padding-top: 5px;
+	font-weight: bold;
+}
+.book-box{
+	position: relative;
+
+
+}
+
+.book{
+	position: absolute;
+	top: -70px;
+	width: 90%;
+
+		border: 1px solid #000;
+}
+
+.book p{
+box-sizing: content-box;
+	font-size: 1.5em;
+	font-weight: bolder;
+	padding-left: 10px;
+	background: #000;
+	color: #fff;
+	height: 50px;
+	line-height: 50px;
+}
+
+.search-form{
+	padding: 10px;
+}
+
+.edit-room{
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+}
+
+.notice{
+	width: 100%;
+	padding: 5px;
+	padding-bottom: 15px;
+	color: red;
+}
+
+a{
+	color: #000 !important;
+}
+
+a:hover{
+	color: #000 !important;
+	background: #fff !important;
+	text-decoration: none !important;
+}
+
+a:visited{
+	color: #000 !important;
+}
+
+.link-book{
+	color: #fff !important;
+}
+
+.link-book:hover{
+	background: rgba(0, 140, 0, 0.8) !important;
+	color: #fff !important;
+}
+
+.link-book:visited{
+	color: #fff !important;
+}
+
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+ }
+
+.rating{
+	position: relative;
+
+}
+
+.rate{
+	position: absolute;
+	left: 53px;
+	top: -2px;
+}
+
+.reviews{
+		position: absolute;
+	left: 170px;
+	top: 0px;
+}
+
+.title{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.dt{
+	width: 100px;
+}

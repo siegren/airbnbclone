@@ -1,0 +1,105 @@
+<div class="cover">
+<%
+							if @room.picture.exists?
+							@pic = @room.picture.url
+						else
+							@pic = @room.picture.url(:thumb)
+						end %>
+	<%= image_tag @pic %> 
+	<% if user_signed_in? %>
+	<% if @room.user_id == current_user.id %>
+	<%= link_to 'Edit', edit_room_path(@room.id), class: 'edit-room btn btn-default' %>
+<% end	%>
+<% end %>
+</div>
+<br />
+<div class="modal fade" id="add-comment" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add a review</h4>
+				</div>
+				<div class="modal-body form-group">
+					<%= form_tag add_comment_path(@room.id), method: :get do %>
+						<%= text_area_tag 'comment_text' , nil, class: 'form-control' %> <br />
+						<%= submit_tag 'comment', class: 'btn-success form-control' %>
+					<% end %>
+				</div>
+<!-- 				<div class="modal-footer">
+					<button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-10">
+								<%= content_tag :p, @room.name, class: 'room-name' %><br/>
+			<%= content_tag :p, @room.location, class: 'location' %>
+			<% if current_user %>
+			<%= rating_for @room, "name", disable_after_rate: false, enable_half: true %>
+			<% else %>
+			<%= rating_for @room, "name"%>
+			<% end %>
+				</div>
+				<div class="col-md-2 for-host">
+					<%= image_tag @host.image.url, class: 'host-avatar' %>
+			<%= content_tag :p, @host.fullname, class: 'host-fullname text-center' %>
+				</div>
+			</div>
+
+
+			<hr />
+
+			<h3>About the Space</h3>
+			<%= content_tag :p, @room.description, class: 'description' %>
+			
+			<hr />
+			<h3>Reviews  			<% if user_signed_in? %>
+					 <a href="#" data-toggle="modal" data-target="#add-comment" class="btn btn-success link-book"> Add a review. </a>
+					 <% end %></h3>
+
+
+			<% if @comments.empty? %>
+					<p>No Reviews yet.
+					<% if user_signed_in? %>
+					 <a href="#" data-toggle="modal" data-target="#add-comment"> Add a review. </a>
+					 <% end %>
+					 </p>
+				<% else %>
+					<% @comments.each do |c| %>
+						<% @user = User.find(c.user_id) %>
+						<div><%= @user.fullname %></div>
+						<div><%= c.comment %></div>
+					<% end %>
+			<% end %>
+		</div>
+		<div class="col-md-4 form-group book-box">
+			<div class="book">
+				<p>Price: P<%= @room.price.round(2) %></p>
+							<%= form_tag book_path(@room.id), method: :get, class: 'search-form' do %>
+<div class="field">
+				<%= label_tag 'Check-in' %><br />
+				<%= date_select 'check_in', 'date', {:order => [:day, :month, :year] }, {class: 'dt'} %>
+				</div>
+<div class="field">
+				<%= label_tag 'Check-out' %><br />
+				<%= date_select 'check_out', 'date', {:order => [:day, :month, :year] }, {class: 'dt'} %>
+				</div>
+				<div class="field">
+				<%= number_field_tag 'guest', "", placeholder: 'Number of guests', class: 'form-control' %></div>
+				<% if user_signed_in? %>
+				<%= submit_tag 'Book', class: 'btn-success form-control' %>
+				<% else %>
+					<a href="#" data-toggle="modal" data-target="#sign-in" class="btn btn-success form-control link-book">Book</a>
+				<% end %>
+			<% end %>
+			</div>
+
+		</div>
+	</div>
+</div>

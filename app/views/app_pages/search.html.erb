@@ -1,0 +1,35 @@
+<%= render 'search-form' %>
+<div id="map"></div>
+<br />
+    <div class="container">
+
+	<%= render 'rooms' %>
+			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x600&sensor=false&zoom=10#{@markers}" %>
+</div>
+
+
+
+    <script>
+      function initMap() {
+        // var uluru = {lat: -25.363, lng: 131.044};
+        var center  ={lat: 14.5995, lng: 120.9842};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5,
+          center: center
+        });
+    
+            <% @multiple.each do |position| %>
+        	
+        	        var marker = new google.maps.Marker({
+          position: {lat: <%= position[:latitude] %>, lng: <%= position[:longitude] %>},
+          map: map
+        });
+           <% end %>
+
+     
+      }
+    </script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPLbPRYoGVimCXNr8JV0IvM7CvUYxPNxE&callback=initMap">
+    </script>
