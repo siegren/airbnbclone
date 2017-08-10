@@ -1,3 +1,5 @@
 module AppPagesHelper
+
+
 	
 end

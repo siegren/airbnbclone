@@ -1,6 +1,26 @@
+  <div class="container">
+  <h2>Booking</h2>
+  <hr />
+  	<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+        <th>Price</th>
+        <th>Show</th>
+      </tr>
+    </thead>
+    <tbody>
 <% @bookings.each do |booking| %>
-	<%= content_tag :p, booking.check_in %>
+<% @room = Room.find(booking.room_id) %>
+<tr><td><%= @room.name %></td><td><%= booking.check_in %></td><td><%= booking.check_out %></td><td><%= @room.price %></td><td><%= link_to 'View', room_profile_path(booking.room_id) %></td></tr>
+
 
 
 
 <% end %>
+</tbody>
+</table>
+  </div>
+  

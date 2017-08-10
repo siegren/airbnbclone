@@ -40,6 +40,18 @@ class AppPagesController < ApplicationController
     redirect_to room_profile_path(params[:id])
   end
 
+  def edit_comment
+    @comment = Review.find_by(params[:id])
+    @comment.update(comment: params[:comment_text])
+    redirect_to room_profile_path(@comment.room_id)
+  end
+
+  def delete_comment
+    @comment = Review.find_by(params[:id])
+    @comment.destroy
+    redirect_to room_profile_path(@comment.room_id)
+  end
+
   def book
 
   	check_in = Date.new(params[:check_in]['date(1i)'].to_i, params[:check_in]['date(2i)'].to_i, params[:check_in]['date(3i)'].to_i)

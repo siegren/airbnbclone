@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   match '/book/:id', to: 'app_pages#book', as: 'book', via: 'get' 
   match '/bookings', to: 'app_pages#my_bookings', as: 'booking', via: 'get'
   match '/add_comment/:id', to: 'app_pages#comment', as: 'add_comment', via: 'get'
+  match '/edit_comment/:id', to: 'app_pages#edit_comment', as: 'edit_comment', via: 'get'
+  match '/delete_comment/:id', to: 'app_pages#delete_comment', as: 'delete_comment', via: 'get'
 end

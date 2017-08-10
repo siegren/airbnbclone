@@ -16,6 +16,8 @@
 	height: 250px;
 	margin: 0 auto;
 	display: block;
+	background-position: center;
+	background-size: cover;
 }
 
 .slider{
@@ -97,8 +99,10 @@
 
 .cover{
 	width: 100%;
-	height: 250px;
+	height: 300px;
 	position: relative;
+	background-size: cover;
+	background-position: center;
 }
 
 .cover img{
@@ -123,9 +127,14 @@ h3{
 
 
 .host-avatar{
-	width: 100%;
+	max-width: 100px;
+	max-height: 100px;
+	width: 100px;
 	height: 100px;
 	border-radius: 100%;
+	background-position: center;
+	background-size: cover;
+	margin: 0 auto;
 }
 
 .host-fullname{
